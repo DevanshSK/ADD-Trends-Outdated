@@ -1,5 +1,6 @@
 import Head from "next/head";
 import React, { useState, useEffect } from "react";
+import Hero from "../components/Home/Hero";
 
 export default function Home() {
   // Fetch products using GET request
@@ -16,6 +17,20 @@ export default function Home() {
       });
   }, []);
 
+  // Consume the rest api here
+  {
+    /* {products.map((product) => {
+    return (
+      <div>
+        <h2>{product.title}</h2>
+        <h3>{product.brand}</h3>
+        <p>{product.description}</p>
+        <hr />
+      </div>
+    );
+  })} */
+  }
+
   return (
     <div>
       <Head>
@@ -28,18 +43,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1>This is the api data</h1>
-        <hr />
-        {products.map((product) => {
-          return (
-            <div>
-              <h2>{product.title}</h2>
-              <h3>{product.brand}</h3>
-              <p>{product.description}</p>
-              <hr />
-            </div>
-          );
-        })}
+        <Hero />
       </main>
     </div>
   );
