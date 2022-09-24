@@ -1,12 +1,12 @@
-import { HeroSpan } from "../../styles/Home";
+import { HeroSpan, HeroContainer } from "../../styles/HomeStyles";
 
 export default function Hero() {
   return (
-    <HeroContainer>
-      <h1>
-        Welcome To <br />
-        <HeroSpan>ADD Trends</HeroSpan>
+    <section>
+      <h1 className="mt-40 ml-10 tracking-wide">
+        Welcome to <br />
+        <span className="text-orange-400">ADD Trends</span>
       </h1>
-    </HeroContainer>
+    </section>
   );
 }
