@@ -4,8 +4,29 @@ import leafImg from "../../assets/image/leaf.png";
 import cartImg from "../../assets/gif/giphy.gif";
 
 export default function Hero() {
+  const parallaxHandler = (e) => {
+    // console.log(e.target);
+    const imageEl = document.querySelectorAll(".parallax-img");
+    imageEl.forEach((img) => {
+      const speed = img.getAttribute("data-speed");
+      const x = (window.innerWidth - e.pageX * speed) / 100;
+      const y = (window.innerHeight - e.pageY * speed) / 100;
+
+      if (img.className.includes("image-1")) {
+        img.style.scale = "0.3";
+      }
+
+      img.style.translate = `${x}px ${y}px`;
+    });
+  };
+
   return (
-    <section className="min-h-screen bg-[#f3f3f5] px-[5%] relative overflow-hidden">
+    <section
+      onMouseMove={(e) => {
+        parallaxHandler(e);
+      }}
+      className="min-h-screen bg-[#f3f3f5] px-[5%] relative overflow-hidden"
+    >
       <div className="container grid grid-cols-1 lg:grid-cols-2 min-h-full py-[80px] gap-6 lg:gap-20 lg:py-24 px-[12px]  m-auto">
         <div className="hero-left flex flex-col items-start justify-center lg:ml-2 z-50">
           <h1 className=" text-[40px]  leading-normal tracking-wide sm:text-6xl lg:text-7xl lg:leading-[90px]">
@@ -16,7 +37,7 @@ export default function Hero() {
             ADD Trends is an online shopping system that provides solutions to
             minimize and optimize these costs.
           </p>
-          <Link href="/">
+          <Link href="#about">
             <a className="border border-[#ff8243] bg-[#ff8243] text-white px-6 py-3 ml-0 rounded-full font-semibold hover:border-[#0d0d25] hover:bg-[#0d0d25] transition-colors mt-2 duration-300 shadow-xl">
               Check our Products
             </a>
@@ -35,14 +56,14 @@ export default function Hero() {
           </div>
         </div>
         <span
-          className="absolute -right-32 -top-36 blur-sm scale-[0.3] parallax-img"
-          data-speed="5"
+          className="absolute -right-32 -top-36 blur-sm parallax-img image-1 pointer-events-none"
+          data-speed="3"
         >
           <Image src={cartImg} alt="" />
         </span>
         <span
-          className="absolute -left-40 -bottom-14 z-0 blur-sm parallax-img"
-          data-speed="5"
+          className="absolute -left-40 -bottom-14 z-0 blur-sm parallax-img pointer-events-none"
+          data-speed="2"
         >
           <Image src={leafImg} alt="" />
         </span>

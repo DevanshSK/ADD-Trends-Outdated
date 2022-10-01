@@ -2,7 +2,7 @@ import Heading from "../Heading";
 
 export default function About() {
   return (
-    <section className="bg-[#f3f3f5]">
+    <section id="about" className="bg-[#f3f3f5]">
       <div className="container py-24 mx-auto px-3">
         <Heading tag="About US" head="Discover Our" tail="Story" />
         <p className="text-center mb-12 max-w-screen-lg mx-auto">
@@ -20,9 +20,9 @@ export default function About() {
           height=""
           src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ"
           title="YouTube video player"
-          frameborder="0"
+          frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
+          allowFullScreen
         ></iframe>
       </div>
     </section>
