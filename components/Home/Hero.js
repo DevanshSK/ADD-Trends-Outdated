@@ -1,11 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
+import leafImg from "../../assets/image/leaf.png";
+import cartImg from "../../assets/gif/giphy.gif";
 
 export default function Hero() {
   return (
-    <section className="min-h-screen bg-[#f3f3f5] px-[5%] relative">
+    <section className="min-h-screen bg-[#f3f3f5] px-[5%] relative overflow-hidden">
       <div className="container grid grid-cols-1 lg:grid-cols-2 min-h-full py-[80px] gap-6 lg:gap-20 lg:py-24 px-[12px]  m-auto">
-        <div className="hero-left flex flex-col items-start justify-center lg:ml-2">
+        <div className="hero-left flex flex-col items-start justify-center lg:ml-2 z-50">
           <h1 className=" text-[40px]  leading-normal tracking-wide sm:text-6xl lg:text-7xl lg:leading-[90px]">
             Welcome To{" "}
             <span className="text-[#ff8243] hero-text-banner">ADD Trends</span>
@@ -20,8 +22,8 @@ export default function Hero() {
             </a>
           </Link>
         </div>
-        <div className="hero-right">
-          <div className="banner-img-wp aspect-[5/4] w-full mt-6">
+        <div className="hero-right z-50">
+          <div className="banner-img-wp aspect-[5/4] lg:aspect-[16/3]] w-full mt-6">
             <div className="banner-img w-full h-full bg-[url('../assets/gif/hero-image.gif')] bg-cover bg-center shadow-xl"></div>
           </div>
 
@@ -32,6 +34,18 @@ export default function Hero() {
             </p>
           </div>
         </div>
+        <span
+          className="absolute -right-32 -top-36 blur-sm scale-[0.3] parallax-img"
+          data-speed="5"
+        >
+          <Image src={cartImg} alt="" />
+        </span>
+        <span
+          className="absolute -left-40 -bottom-14 z-0 blur-sm parallax-img"
+          data-speed="5"
+        >
+          <Image src={leafImg} alt="" />
+        </span>
       </div>
     </section>
   );

@@ -3,7 +3,7 @@ import Heading from "../Heading";
 export default function About() {
   return (
     <section className="bg-[#f3f3f5]">
-      <div className="container pt-24 mx-auto px-3">
+      <div className="container py-24 mx-auto px-3">
         <Heading tag="About US" head="Discover Our" tail="Story" />
         <p className="text-center mb-12 max-w-screen-lg mx-auto">
           Authorized customers do not need to visit the store to pick up and
