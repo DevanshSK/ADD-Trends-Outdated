@@ -7,38 +7,20 @@ import ProductSection from "../components/Home/ProductSection";
 export default function Home() {
   // Fetch products using GET request
   const [products, setProducts] = useState([]);
+  const [filtered, setFiltered] = useState([]);
+  const [activeCat, setActiveCat] = useState("");
 
   useEffect(() => {
-    // fetch("https://dummyjson.com/products/")
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     console.log(data.products);
-    //     setProducts(data.products);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err.message);
-    //   });
     fetchProducts();
   }, []);
   const fetchProducts = async () => {
-    const data = await fetch("https://dummyjson.com/products/");
+    // const data = await fetch("https://dummyjson.com/products/");
+    const data = await fetch("https://dummyjson.com/products?limit=30&skip=30");
     const product = await data.json();
-    console.log(product);
+    console.log(product.products);
+    setProducts(product.products);
+    setFiltered(product.products);
   };
-
-  // Consume the rest api here
-  {
-    /* {products.map((product) => {
-    return (
-      <div>
-        <h2>{product.title}</h2>
-        <h3>{product.brand}</h3>
-        <p>{product.description}</p>
-        <hr />
-      </div>
-    );
-  })} */
-  }
 
   return (
     <div className="scroll-smooth">
@@ -54,7 +36,13 @@ export default function Home() {
       <main>
         <Hero />
         <About />
-        <ProductSection />
+        <ProductSection
+          products={products}
+          filtered={filtered}
+          setFiltered={setFiltered}
+          activeCat={activeCat}
+          setActiveCat={setActiveCat}
+        />
       </main>
     </div>
   );

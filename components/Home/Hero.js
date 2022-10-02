@@ -56,13 +56,13 @@ export default function Hero() {
           </div>
         </div>
         <span
-          className="absolute -right-32 -top-36 blur-sm parallax-img image-1 pointer-events-none"
+          className="absolute -right-32 -top-36 blur-sm parallax-img image-1 pointer-events-none hidden lg:block"
           data-speed="3"
         >
           <Image src={cartImg} alt="" />
         </span>
         <span
-          className="absolute -left-40 -bottom-14 z-0 blur-sm parallax-img pointer-events-none"
+          className="absolute -left-40 -bottom-14 z-0 blur-sm parallax-img pointer-events-none hidden lg:block"
           data-speed="2"
         >
           <Image src={leafImg} alt="" />
