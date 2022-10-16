@@ -37,13 +37,7 @@ export default function Home() {
       <main>
         <Hero />
         <About />
-        <ProductSection
-        // products={products}
-        // filtered={filtered}
-        // setFiltered={setFiltered}
-        // activeCat={activeCat}
-        // setActiveCat={setActiveCat}
-        />
+        <ProductSection />
       </main>
     </div>
   );

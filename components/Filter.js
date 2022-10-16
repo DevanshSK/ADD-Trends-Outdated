@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 import { useStateContext } from "../lib/context";
 
 export default function Filter() {
@@ -26,48 +24,6 @@ export default function Filter() {
             </button>
           );
         })}
-
-        {/* <button
-          onClick={() => setActiveCat("")}
-          className={
-            activeCat === ""
-              ? "btn-filter text-white bg-[#ff8423]"
-              : "btn-filter text-[#ff8243] bg-white "
-          }
-          autoFocus
-        >
-          all
-        </button>
-        <button
-          onClick={() => setActiveCat("groceries")}
-          className={
-            activeCat === "groceries"
-              ? "btn-filter text-white bg-[#ff8423]"
-              : "btn-filter text-[#ff8243] bg-white "
-          }
-        >
-          groceries
-        </button>
-        <button
-          onClick={() => setActiveCat("smartphones")}
-          className={
-            activeCat === "smartphones"
-              ? "btn-filter text-white bg-[#ff8423]"
-              : "btn-filter text-[#ff8243] bg-white "
-          }
-        >
-          smartphones
-        </button>
-        <button
-          onClick={() => setActiveCat("laptops")}
-          className={
-            activeCat === "laptops"
-              ? "btn-filter text-white bg-[#ff8423]"
-              : "btn-filter text-[#ff8243] bg-white "
-          }
-        >
-          laptops
-        </button> */}
       </div>
     </div>
   );

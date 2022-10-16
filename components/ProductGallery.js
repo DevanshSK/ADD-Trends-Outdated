@@ -17,7 +17,6 @@ export default function ProductGallery() {
       >
         <AnimatePresence>
           {filtered.map((product) => {
-            console.log("This is a product", product);
             return <Product product={product} key={product.id} />;
           })}
         </AnimatePresence>
