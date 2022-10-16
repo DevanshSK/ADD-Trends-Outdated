@@ -9,8 +9,8 @@ export default function ProductSection({
   filtered,
 }) {
   return (
-    <section className="">
-      <div className="container py-24 mx-auto px-3">
+    <section className="border-black border-2 ">
+      <div className="container py-24 mx-auto px-3 ">
         <Heading
           tag="Our Items"
           head="Get ready fast"

@@ -21,23 +21,45 @@ export default function Filter({
 
   return (
     <div className=" w-full">
-      <div className="filter-container text-center">
+      <div className="filter-container flex flex-wrap items-center justify-center gap-x-4 gap-y-3 ">
         <button
           onClick={() => setActiveCat("")}
-          className="border-2 border-solid border-[#ff8243] py-2 px-6 rounded-full text-[#ff8243] font-bold mr-4 min-w-[5rem] bg-white cursor-pointer focus:text-white focus:bg-[#ff8423]"
+          className={
+            activeCat === ""
+              ? "btn-filter text-white bg-[#ff8423]"
+              : "btn-filter text-[#ff8243] bg-white "
+          }
           autoFocus
         >
           All
         </button>
         <button
-          onClick={() => setActiveCat("furniture")}
-          className="border-2 border-solid border-[#ff8243] py-2 px-6 rounded-full text-[#ff8243] font-bold mr-4 min-w-[5rem] bg-white cursor-pointer focus:text-white focus:bg-[#ff8423]"
+          onClick={() => setActiveCat("skincare")}
+          className={
+            activeCat === "skincare"
+              ? "btn-filter text-white bg-[#ff8423]"
+              : "btn-filter text-[#ff8243] bg-white "
+          }
         >
-          Furniture
+          Skincare
+        </button>
+        <button
+          onClick={() => setActiveCat("smartphones")}
+          className={
+            activeCat === "smartphones"
+              ? "btn-filter text-white bg-[#ff8423]"
+              : "btn-filter text-[#ff8243] bg-white "
+          }
+        >
+          Smartphones
         </button>
         <button
           onClick={() => setActiveCat("laptops")}
-          className="border-2 border-solid border-[#ff8243] py-2 px-6 rounded-full text-[#ff8243] font-bold mr-4 min-w-[5rem] bg-white cursor-pointer focus:text-white focus:bg-[#ff8423]"
+          className={
+            activeCat === "laptops"
+              ? "btn-filter text-white bg-[#ff8423]"
+              : "btn-filter text-[#ff8243] bg-white "
+          }
         >
           Laptops
         </button>

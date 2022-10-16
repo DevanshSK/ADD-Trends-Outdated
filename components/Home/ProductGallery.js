@@ -1,5 +1,6 @@
 import Product from "./Product";
 import Filter from "../Filter";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function ProductGallery({
   products,
@@ -16,11 +17,16 @@ export default function ProductGallery({
         activeCat={activeCat}
         setActiveCat={setActiveCat}
       />
-      <div className="grid grid-cols-1 sm:grid-cols-[repeat(auto-fit,_minmax(350px,_1fr))] items-center">
-        {filtered.map((product) => {
-          return <Product product={product} />;
-        })}
-      </div>
+      <motion.div
+        layout
+        className="grid grid-cols-1 sm:grid-cols-[repeat(auto-fit,_minmax(350px,_1fr))] items-center overflow-hidden relative"
+      >
+        <AnimatePresence>
+          {filtered.map((product) => {
+            return <Product product={product} key={product.id} />;
+          })}
+        </AnimatePresence>
+      </motion.div>
     </div>
   );
 }

@@ -14,9 +14,10 @@ export default function Home() {
     fetchProducts();
   }, []);
   const fetchProducts = async () => {
-    // const data = await fetch("https://dummyjson.com/products/");
-    const data = await fetch("https://dummyjson.com/products?limit=30&skip=30");
+    const data = await fetch("https://dummyjson.com/products/");
+    // const data = await fetch("https://dummyjson.com/products?limit=30&skip=30");
     const product = await data.json();
+    console.log(data.status);
     console.log(product.products);
     setProducts(product.products);
     setFiltered(product.products);
