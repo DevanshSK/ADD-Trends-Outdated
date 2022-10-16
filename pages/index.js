@@ -5,23 +5,23 @@ import About from "../components/About";
 import ProductSection from "../components/ProductSection";
 
 export default function Home() {
-  // Fetch products using GET request
-  const [products, setProducts] = useState([]);
-  const [filtered, setFiltered] = useState([]);
-  const [activeCat, setActiveCat] = useState("");
+  // // Fetch products using GET request
+  // const [products, setProducts] = useState([]);
+  // const [filtered, setFiltered] = useState([]);
+  // const [activeCat, setActiveCat] = useState("");
 
-  useEffect(() => {
-    fetchProducts();
-  }, []);
-  const fetchProducts = async () => {
-    const data = await fetch("https://dummyjson.com/products/");
-    // const data = await fetch("https://dummyjson.com/products?limit=30&skip=30");
-    const product = await data.json();
-    console.log(data.status);
-    console.log(product.products);
-    setProducts(product.products);
-    setFiltered(product.products);
-  };
+  // useEffect(() => {
+  //   fetchProducts();
+  // }, []);
+  // const fetchProducts = async () => {
+  //   const data = await fetch("https://dummyjson.com/products/");
+  //   // const data = await fetch("https://dummyjson.com/products?limit=30&skip=30");
+  //   const product = await data.json();
+  //   console.log(data.status);
+  //   console.log(product.products);
+  //   setProducts(product.products);
+  //   setFiltered(product.products);
+  // };
 
   return (
     <div className="scroll-smooth">
@@ -38,11 +38,11 @@ export default function Home() {
         <Hero />
         <About />
         <ProductSection
-          products={products}
-          filtered={filtered}
-          setFiltered={setFiltered}
-          activeCat={activeCat}
-          setActiveCat={setActiveCat}
+        // products={products}
+        // filtered={filtered}
+        // setFiltered={setFiltered}
+        // activeCat={activeCat}
+        // setActiveCat={setActiveCat}
         />
       </main>
     </div>

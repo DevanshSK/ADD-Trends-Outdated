@@ -2,23 +2,11 @@ import Link from "next/link";
 import Image from "next/image";
 import leafImg from "../assets/image/leaf.png";
 import cartImg from "../assets/gif/giphy.gif";
+import { useStateContext } from "../lib/context";
 
 export default function Hero() {
-  const parallaxHandler = (e) => {
-    // console.log(e.target);
-    const imageEl = document.querySelectorAll(".parallax-img");
-    imageEl.forEach((img) => {
-      const speed = img.getAttribute("data-speed");
-      const x = (window.innerWidth - e.pageX * speed) / 100;
-      const y = (window.innerHeight - e.pageY * speed) / 100;
-
-      if (img.className.includes("image-1")) {
-        img.style.scale = "0.3";
-      }
-
-      img.style.translate = `${x}px ${y}px`;
-    });
-  };
+  // Import Parallax effect
+  const { parallaxHandler } = useStateContext();
 
   return (
     <section

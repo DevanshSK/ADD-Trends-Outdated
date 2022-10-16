@@ -1,28 +1,33 @@
 import { useEffect } from "react";
 
-export default function Filter({
-  products,
-  setFiltered,
-  activeCat,
-  setActiveCat,
-}) {
-  // Filter the orignal products
-  useEffect(() => {
-    if (activeCat === "") {
-      setFiltered(products);
-      return;
-    }
-    const filtered = products.filter((item) => {
-      console.log(item.category);
-      return item.category === activeCat;
-    });
-    setFiltered(filtered);
-  }, [activeCat]);
+import { useStateContext } from "../lib/context";
+
+export default function Filter() {
+  // Use context
+  const { activeCat, setActiveCat } = useStateContext();
+  // Categories Array
+  const categories = ["", "groceries", "smartphones", "laptops"];
 
   return (
     <div className=" w-full">
       <div className="filter-container flex flex-wrap items-center justify-center gap-x-4 gap-y-3 ">
-        <button
+        {categories.map((cat) => {
+          return (
+            <button
+              onClick={() => setActiveCat(cat)}
+              className={
+                activeCat === cat
+                  ? "btn-filter text-white bg-[#ff8423]"
+                  : "btn-filter text-[#ff8243] bg-white "
+              }
+              autoFocus
+            >
+              {cat === "" ? "All" : cat}
+            </button>
+          );
+        })}
+
+        {/* <button
           onClick={() => setActiveCat("")}
           className={
             activeCat === ""
@@ -31,7 +36,7 @@ export default function Filter({
           }
           autoFocus
         >
-          All
+          all
         </button>
         <button
           onClick={() => setActiveCat("groceries")}
@@ -41,7 +46,7 @@ export default function Filter({
               : "btn-filter text-[#ff8243] bg-white "
           }
         >
-          Groceries
+          groceries
         </button>
         <button
           onClick={() => setActiveCat("smartphones")}
@@ -51,7 +56,7 @@ export default function Filter({
               : "btn-filter text-[#ff8243] bg-white "
           }
         >
-          Smartphones
+          smartphones
         </button>
         <button
           onClick={() => setActiveCat("laptops")}
@@ -61,8 +66,8 @@ export default function Filter({
               : "btn-filter text-[#ff8243] bg-white "
           }
         >
-          Laptops
-        </button>
+          laptops
+        </button> */}
       </div>
     </div>
   );

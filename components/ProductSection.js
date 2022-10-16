@@ -1,13 +1,7 @@
 import Heading from "./Heading";
 import ProductGallery from "./ProductGallery";
 
-export default function ProductSection({
-  products,
-  setFiltered,
-  activeCat,
-  setActiveCat,
-  filtered,
-}) {
+export default function ProductSection() {
   return (
     <section className="bg-[linear-gradient(120deg,_#fdfbfb_0%,_#ebedee_100%)] ">
       <div className="container py-24 mx-auto px-3 ">
@@ -16,13 +10,7 @@ export default function ProductSection({
           head="Get ready fast"
           tail="Sale is coming soon."
         />
-        <ProductGallery
-          products={products}
-          filtered={filtered}
-          setFiltered={setFiltered}
-          activeCat={activeCat}
-          setActiveCat={setActiveCat}
-        />
+        <ProductGallery />
       </div>
     </section>
   );
