@@ -33,11 +33,7 @@ main {
   margin: 0 auto;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5 {
+.main-font {
   font-weight: 900;
   font-family: var(--main-font);
 }

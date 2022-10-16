@@ -17,7 +17,7 @@ export default function Hero() {
     >
       <div className="container grid grid-cols-1 lg:grid-cols-2 min-h-full py-[80px] gap-6 lg:gap-20 lg:py-24 px-[12px]  m-auto">
         <div className="hero-left flex flex-col items-start justify-center lg:ml-2 z-50">
-          <h1 className=" text-[40px]  leading-normal tracking-wide sm:text-6xl lg:text-7xl lg:leading-[90px]">
+          <h1 className="main-font text-[40px]  leading-normal tracking-wide sm:text-6xl lg:text-7xl lg:leading-[90px]">
             Welcome To{" "}
             <span className="text-[#ff8243] hero-text-banner">ADD Trends</span>
           </h1>
@@ -37,7 +37,7 @@ export default function Hero() {
           </div>
 
           <div className="right-text mt-6 text-center max-w-md mx-auto">
-            <h5 className="text-left text-xl mb-2 ">Fashion</h5>
+            <h5 className="main-font text-left text-xl mb-2 ">Fashion</h5>
             <p className="font-normal text-left text-base">
               A place where you can find anything you can ask for in fashion
             </p>
