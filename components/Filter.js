@@ -34,14 +34,14 @@ export default function Filter({
           All
         </button>
         <button
-          onClick={() => setActiveCat("skincare")}
+          onClick={() => setActiveCat("groceries")}
           className={
-            activeCat === "skincare"
+            activeCat === "groceries"
               ? "btn-filter text-white bg-[#ff8423]"
               : "btn-filter text-[#ff8243] bg-white "
           }
         >
-          Skincare
+          Groceries
         </button>
         <button
           onClick={() => setActiveCat("smartphones")}

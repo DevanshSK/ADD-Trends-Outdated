@@ -1,4 +1,4 @@
-import Heading from "../Heading";
+import Heading from "./Heading";
 import ProductGallery from "./ProductGallery";
 
 export default function ProductSection({
@@ -9,7 +9,7 @@ export default function ProductSection({
   filtered,
 }) {
   return (
-    <section className="border-black border-2 ">
+    <section className="bg-[linear-gradient(120deg,_#fdfbfb_0%,_#ebedee_100%)] ">
       <div className="container py-24 mx-auto px-3 ">
         <Heading
           tag="Our Items"
@@ -27,3 +27,5 @@ export default function ProductSection({
     </section>
   );
 }
+
+// background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);

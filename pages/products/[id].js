@@ -1,3 +1,7 @@
-export default function ProductDetails() {
-  return <h1>This is a product page.</h1>;
-}
+import React from "react";
+
+const [id] = () => {
+  return <div>[id]</div>;
+};
+
+export default [id];

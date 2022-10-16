@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import leafImg from "../../assets/image/leaf.png";
-import cartImg from "../../assets/gif/giphy.gif";
+import leafImg from "../assets/image/leaf.png";
+import cartImg from "../assets/gif/giphy.gif";
 
 export default function Hero() {
   const parallaxHandler = (e) => {

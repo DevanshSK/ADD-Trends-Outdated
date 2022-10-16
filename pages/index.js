@@ -1,8 +1,8 @@
 import Head from "next/head";
 import React, { useState, useEffect } from "react";
-import Hero from "../components/Home/Hero";
-import About from "../components/Home/About";
-import ProductSection from "../components/Home/ProductSection";
+import Hero from "../components/Hero";
+import About from "../components/About";
+import ProductSection from "../components/ProductSection";
 
 export default function Home() {
   // Fetch products using GET request

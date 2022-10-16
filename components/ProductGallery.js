@@ -1,5 +1,5 @@
 import Product from "./Product";
-import Filter from "../Filter";
+import Filter from "./Filter";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function ProductGallery({
