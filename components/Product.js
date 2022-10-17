@@ -4,17 +4,11 @@ import { AiFillStar } from "react-icons/ai";
 import { useStateContext } from "../lib/context";
 
 export default function Product({ product }) {
-  const { formattedNumber } = useStateContext();
+  const { formattedNumber, calculatePrice } = useStateContext();
 
   console.log(product);
   const { title, brand, rating, id, price, images, discountPercentage, stock } =
     product;
-
-  const calculatePrice = (discountprice, discount) => {
-    let remPercentage = 100 - discount;
-    let n = Number.parseInt((discountprice / remPercentage) * 100 * 80);
-    return formattedNumber(n);
-  };
 
   return (
     <motion.div
@@ -23,7 +17,7 @@ export default function Product({ product }) {
       initial={{ opacity: 0, scale: 0 }}
       exit={{ opacity: 0, scale: 0 }}
       whileHover={{
-        scale: 1.1,
+        scale: 1.06,
         transition: { duration: 0.3 },
       }}
       whileTap={{ scale: 0.9 }}
