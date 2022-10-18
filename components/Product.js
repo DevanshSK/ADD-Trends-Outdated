@@ -12,12 +12,13 @@ export default function Product({ product }) {
     brand,
     rating,
     id,
-    orignal_mrp,
+    original_mrp,
     image,
     discounted_percent,
     quantity,
   } = product;
   console.log("The id is : ", id);
+  console.log("The price is : ", original_mrp);
 
   return (
     <motion.div
@@ -55,10 +56,10 @@ export default function Product({ product }) {
             {/* <h2>{rating}</h2> */}
             <div className="flex gap-x-[6px] items-baseline">
               <h4 className="text-lg font-semibold text-[#0d0d25]">
-                &#8377;{calculatePrice(orignal_mrp, discounted_percent)}
+                &#8377;{calculatePrice(original_mrp, discounted_percent)}
               </h4>
               <p className="text-md font-medium text-gray-500 line-through">
-                &#8377;{orignal_mrp}
+                &#8377;{original_mrp}
               </p>
               <p className="text-md font-medium text-red-500 ">
                 ({Number.parseInt(discounted_percent)}% OFF)

@@ -34,8 +34,14 @@ const cards = {
 // };
 
 export default function Cart() {
-  const { cartItems, setShowCart, onAdd, onRemove, totalPrice } =
-    useStateContext();
+  const {
+    cartItems,
+    setShowCart,
+    onAdd,
+    onRemove,
+    totalPrice,
+    calculatePrice,
+  } = useStateContext();
   console.log(cartItems);
 
   return (
@@ -62,13 +68,13 @@ export default function Cart() {
         </motion.div>
         {cartItems.length < 1 && (
           <motion.div
-            className="empty-div z-10 top-0 flex flex-col items-center justifyi-center h-full w-full"
+            className="empty-div z-10 top-0 flex flex-col items-center justify-center h-[85%] w-full"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2 }}
             onClick={() => setShowCart(false)}
           >
-            <h1 className="text-2xl px-0 py-8">
+            <h1 className="text-2xl px-0 py-8 text-center">
               You have more shopping to do 😉
             </h1>
             <FaShoppingCart className="text-[7rem] text-[#535353]" />
@@ -96,11 +102,15 @@ export default function Cart() {
                     alt={item.item_name}
                   />
                   <motion.div className="card-info w-1/2">
-                    <h3 className="text-base font-bold text-[#0d0d25]">
+                    <h3 className="text-base font-bold text-[#0d0d25] mb-2">
                       {item.item_name}
                     </h3>
                     <h3 className="text-base font-bold text-[#0d0d25]">
-                      ₹{item.orignal_mrp}
+                      ₹
+                      {calculatePrice(
+                        item.original_mrp,
+                        item.discounted_percent
+                      )}
                     </h3>
                     <motion.div className="quantity flex justify-between my-4 items-center">
                       {/* flex direction : space-between */}
@@ -127,7 +137,9 @@ export default function Cart() {
         </motion.div>
         {cartItems.length >= 1 && (
           <motion.div className="checkout">
-            <h2 className="text-xl text-[#0d0d25]">Subtotal: ₹{totalPrice}</h2>
+            <h2 className="text-xl font-bold text-[#0d0d25]">
+              Subtotal: ₹{totalPrice}
+            </h2>
             <button className="bg-[#0d0d25] py-[1em] px-4 w-full my-4 mx-0 text-white cursor-pointer">
               Purchase
             </button>
