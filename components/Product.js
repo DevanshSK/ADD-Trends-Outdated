@@ -35,7 +35,7 @@ export default function Product({ product }) {
     >
       <Link href={`/products/${id}`}>
         <div>
-          <div className="aspect-square my-5  relative">
+          <div className="aspect-[3/4] my-5  relative">
             <img
               src={image}
               alt=""

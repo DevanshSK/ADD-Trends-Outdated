@@ -1,7 +1,7 @@
 import React from "react";
 import { FiShoppingBag } from "react-icons/fi";
 import { useStateContext } from "../lib/context";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Cart from "./cart";
 
@@ -9,14 +9,19 @@ const Navbar = () => {
   const { showCart, setShowCart, totalQuantities } = useStateContext();
 
   return (
-    <div>
-      <div className=" mx-auto bg-[hsla(0,0%,100%,.8)] backdrop-blur px-3 z-[99] sticky top-0 left-0 right-0  shadow-lg ">
-        <div className="container mx-auto min-h-[12vh] flex flex-row items-center  justify-between   ">
+    <div className=" mx-auto bg-[hsla(0,0%,100%,.8)] backdrop-blur px-3 z-[99] sticky top-0 left-0 right-0  shadow-lg ">
+      <div className="container mx-auto px-3">
+        <div className=" mx-auto min-h-[12vh] flex flex-row items-center  justify-between   ">
           <Link href={"/"}>
-            <span className="one  font-black text-lg ">ADD Trends</span>
+            <span className="one  font-black text-lg cursor-pointer">
+              ADD Trends
+            </span>
           </Link>
-          <div className="two  ">
-            <div className="flex flex-col items-center relative">
+          <div className="two  nav-icons">
+            <div
+              className="flex flex-col items-center relative cursor-pointer"
+              onClick={() => setShowCart(true)}
+            >
               {totalQuantities > 0 && (
                 <motion.span
                   animate={{ scale: 1 }}
@@ -30,9 +35,9 @@ const Navbar = () => {
               <span className="text-sm font-semibold text-gray-600">Cart</span>
             </div>
           </div>
+          <AnimatePresence>{showCart && <Cart />}</AnimatePresence>
         </div>
       </div>
-      <Cart />
     </div>
   );
 };

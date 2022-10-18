@@ -1,23 +1,39 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import { useStateContext } from "../../lib/context";
 import { AiFillStar } from "react-icons/ai";
 import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
 
 const ProductDetails = () => {
-  const { formattedNumber, calculatePrice } = useStateContext();
-
-  const { products, qty, increaseQty, decreaseQty, onAdd } = useStateContext();
+  const {
+    current,
+    setCurrent,
+    qty,
+    increaseQty,
+    decreaseQty,
+    onAdd,
+    formattedNumber,
+    calculatePrice,
+  } = useStateContext();
 
   // Fetch Slug
   const { query } = useRouter();
-  const idUrl = Number.parseInt(query.id);
-  console.log(+idUrl, typeof +idUrl);
-  if (idUrl === undefined) return <h1>Error</h1>;
+  console.log(query.id);
+  const idUrl = "" + query.url;
 
-  const currentProduct = products.find((p) => p.id === idUrl);
-  // const { title, brand, price, images, description, discountPercentage } =
-  //   currentProduct || {};
+  // Fetch product Details
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+  const fetchProducts = async () => {
+    const data = await fetch(`http://127.0.0.1:8000/products/${query.id}/`);
+    // const data = await fetch("https://dummyjson.com/products/");
+    // const data = await fetch("https://dummyjson.com/products?limit=30&skip=30");
+    const product = await data.json();
+    console.log(data.status);
+    console.log(product); // Array of products
+    setCurrent(product);
+  };
   const {
     item_name,
     brand,
@@ -28,8 +44,8 @@ const ProductDetails = () => {
     discounted_percent,
     quantity,
     product_details,
-  } = currentProduct;
-  console.log(currentProduct);
+  } = current;
+  console.log(current);
 
   // const item = currentProduct.at(0);
   // console.log(item.title);
@@ -83,7 +99,7 @@ const ProductDetails = () => {
             </button>
           </div>
           <button
-            onClick={() => onAdd(currentProduct, qty)}
+            onClick={() => onAdd(current, qty)}
             className="text-base border-2 border-black w-full block py-2 text-white bg-[#0d0d25] rounded"
           >
             Add To Cart
