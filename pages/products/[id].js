@@ -7,7 +7,7 @@ import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
 const ProductDetails = () => {
   const { formattedNumber, calculatePrice } = useStateContext();
 
-  const { products } = useStateContext();
+  const { products, qty, increaseQty, decreaseQty, onAdd } = useStateContext();
 
   // Fetch Slug
   const { query } = useRouter();
@@ -37,7 +37,7 @@ const ProductDetails = () => {
   // console.log(title, brand, price);
 
   return (
-    <section className="bg-[linear-gradient(120deg,_#fdfbfb_0%,_#ebedee_100%)] min-h-screen py-16 px-[10%]">
+    <section className="bg-[linear-gradient(120deg,_#fdfbfb_0%,_#ebedee_100%)] min-h-screen py-4 px-[10%]">
       <div className="container py-8 mx-auto flex flex-col gap-8 md:flex-row md:justify-between md:items-start">
         <div className="image-part aspect-square md:w-[40%]">
           <img
@@ -63,15 +63,18 @@ const ProductDetails = () => {
           </div>
           <div className="flex items-center  gap-x-2 mb-2">
             <span className="text-gray-900">Quantity</span>
-            <button className="text-lg">
+            <button className="text-lg" onClick={decreaseQty}>
               <AiFillMinusCircle className="text-[#0d0d25]" />
             </button>
-            <p>qty</p>
-            <button className="text-lg">
+            <p>{qty}</p>
+            <button className="text-lg" onClick={increaseQty}>
               <AiFillPlusCircle className="text-[#0d0d25]" />
             </button>
           </div>
-          <button className="text-base border-2 border-black w-full block py-2 text-white bg-[#0d0d25] rounded">
+          <button
+            onClick={() => onAdd(currentProduct, qty)}
+            className="text-base border-2 border-black w-full block py-2 text-white bg-[#0d0d25] rounded"
+          >
             Add To Cart
           </button>
         </div>

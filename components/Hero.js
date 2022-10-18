@@ -15,7 +15,7 @@ export default function Hero() {
       }}
       className="min-h-screen bg-[#f3f3f5] px-[5%] relative overflow-hidden"
     >
-      <div className="container grid grid-cols-1 lg:grid-cols-2 min-h-full py-[80px] gap-6 lg:gap-20 lg:py-24 px-[12px]  m-auto">
+      <div className="container grid grid-cols-1 lg:grid-cols-2 min-h-full py-10 gap-6 lg:gap-20 lg:py-24 px-[12px]  m-auto">
         <div className="hero-left flex flex-col items-start justify-center lg:ml-2 z-50">
           <h1 className="main-font text-[40px]  leading-normal tracking-wide sm:text-6xl lg:text-7xl lg:leading-[90px]">
             Welcome To{" "}
