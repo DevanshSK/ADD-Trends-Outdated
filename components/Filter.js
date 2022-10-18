@@ -1,9 +1,10 @@
-import { useStateContext } from "../lib/context";
+import { useStateContext, products } from "../lib/context";
 
 export default function Filter() {
   // Use context
   const { activeCat, setActiveCat } = useStateContext();
   // Categories Array
+  // const categories = products.filter((product.))
   const categories = ["", "groceries", "smartphones", "laptops"];
 
   return (

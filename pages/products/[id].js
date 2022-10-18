@@ -11,13 +11,24 @@ const ProductDetails = () => {
 
   // Fetch Slug
   const { query } = useRouter();
-  const id = Number.parseInt(query.id);
-  console.log(+id, typeof +id);
-  if (id === undefined) return <h1>Error</h1>;
+  const idUrl = Number.parseInt(query.id);
+  console.log(+idUrl, typeof +idUrl);
+  if (idUrl === undefined) return <h1>Error</h1>;
 
-  const currentProduct = products.find((p) => p.id === id);
-  const { title, brand, price, images, description, discountPercentage } =
-    currentProduct || {};
+  const currentProduct = products.find((p) => p.id === idUrl);
+  // const { title, brand, price, images, description, discountPercentage } =
+  //   currentProduct || {};
+  const {
+    item_name,
+    brand,
+    rating,
+    id,
+    orignal_mrp,
+    image,
+    discounted_percent,
+    quantity,
+    product_details,
+  } = currentProduct;
   console.log(currentProduct);
 
   // const item = currentProduct.at(0);
@@ -42,23 +53,23 @@ const ProductDetails = () => {
         <div className="image-part aspect-square md:w-[40%]">
           <img
             className="h-full object-cover object-center shadow-[rgba(0,0,0,0.24)_0px_3px_8px] "
-            src={images[0]}
+            src={image}
             alt=""
           />
         </div>
         <div className="details-part md:w-[50%] ">
-          <p className=" text-2xl main-font mb-2">{title}</p>
+          <p className=" text-2xl main-font mb-2">{item_name}</p>
           <p className=" mb-2 text-base font-semibold text-gray-600">{brand}</p>
-          <p className=" text-sm mb-2">{description}</p>
+          <p className=" text-sm mb-2">{product_details}</p>
           <div className="flex gap-x-[6px] items-baseline  mb-2">
             <h4 className="text-lg font-semibold text-[#0d0d25]">
-              &#8377;{price * 80}
+              &#8377;{calculatePrice(orignal_mrp, discounted_percent)}
             </h4>
             <p className="text-md font-medium text-gray-500 line-through">
-              &#8377;{calculatePrice(price, discountPercentage)}
+              &#8377;{orignal_mrp}
             </p>
             <p className="text-md font-medium text-red-500 ">
-              ({Number.parseInt(discountPercentage)}% OFF)
+              ({Number.parseInt(discounted_percent)}% OFF)
             </p>
           </div>
           <div className="flex items-center  gap-x-2 mb-2">

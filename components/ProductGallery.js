@@ -13,7 +13,7 @@ export default function ProductGallery() {
       <Filter />
       <motion.div
         layout
-        className="grid grid-cols-1 sm:grid-cols-[repeat(auto-fit,_minmax(350px,_1fr))] items-center  relative mt-5"
+        className="grid grid-cols-1 sm:grid-cols-[repeat(auto-fit,_minmax(350px,_1fr))] items-center  relative mt-5 "
       >
         <AnimatePresence>
           {filtered.map((product) => {
