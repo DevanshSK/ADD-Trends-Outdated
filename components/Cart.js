@@ -43,7 +43,7 @@ export default function Cart() {
     });
     console.log("Cart Items are : ", cartItems);
     const data = await response.json();
-    console.log(data.id);
+    console.log(data.url);
     await stripe.redirectToCheckout({ sessionID: data.id });
   };
 

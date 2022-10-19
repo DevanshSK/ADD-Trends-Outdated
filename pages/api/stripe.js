@@ -19,8 +19,13 @@ export default async function handler(req, res) {
         shipping_address_collection: {
           allowed_countries: ["IN", "US", "CA"],
         },
+        allow_promotion_codes: true,
+        shipping_options: [
+          { shipping_rate: "shr_1LuaUMSC3ULFLuHoQiwJU7Uo" },
+          { shipping_rate: "shr_1LuaTMSC3ULFLuHoaoiNa5Bj" },
+        ],
         line_items: req.body.map((item) => {
-          // console.log("Items", item);
+          console.log(item);
 
           return {
             price_data: {
@@ -32,6 +37,10 @@ export default async function handler(req, res) {
               unit_amount:
                 calculatePrice(item.original_mrp, item.discounted_percent) *
                 100,
+            },
+            adjustable_quantity: {
+              enabled: true,
+              minimum: 1,
             },
             quantity: item.quantity,
           };
