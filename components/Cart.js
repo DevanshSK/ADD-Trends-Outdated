@@ -35,16 +35,17 @@ export default function Cart() {
 
   // Payments;
   const handleCheckout = async () => {
-    const stripe = await getStripe();
+    const stripePromise = await getStripe();
     const response = await fetch("/api/stripe", {
       method: "POST",
-      headers: { "Content-type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(cartItems),
     });
-    console.log("Cart Items are : ", cartItems);
     const data = await response.json();
-    console.log(data.url);
-    await stripe.redirectToCheckout({ sessionID: data.id });
+    console.log(stripePromise);
+    await stripePromise.redirectToCheckout({ sessionId: data.id });
   };
 
   return (
