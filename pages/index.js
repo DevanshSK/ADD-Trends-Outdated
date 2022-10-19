@@ -33,8 +33,8 @@ export default function Home() {
     // const data = await fetch("https://dummyjson.com/products/");
     // const data = await fetch("https://dummyjson.com/products?limit=30&skip=30");
     const product = await data.json();
-    console.log(data.status);
-    console.log(product); // Array of products
+    // console.log(data.status);
+    // console.log(product); // Array of products
     setProducts(product);
     setFiltered(product);
   };

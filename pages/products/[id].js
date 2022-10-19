@@ -18,8 +18,8 @@ const ProductDetails = () => {
 
   // Fetch Slug
   const { query } = useRouter();
-  console.log(query.id);
-  const idUrl = "" + query.url;
+  // console.log(query.id);
+  // const idUrl = "" + query.url;
 
   // Fetch product Details
   useEffect(() => {
@@ -30,8 +30,8 @@ const ProductDetails = () => {
     // const data = await fetch("https://dummyjson.com/products/");
     // const data = await fetch("https://dummyjson.com/products?limit=30&skip=30");
     const product = await data.json();
-    console.log(data.status);
-    console.log(product); // Array of products
+    // console.log(data.status);
+    // console.log(product); // Array of products
     setCurrent(product);
   };
   const {
@@ -46,22 +46,6 @@ const ProductDetails = () => {
     product_details,
   } = current;
   console.log(current);
-
-  // const item = currentProduct.at(0);
-  // console.log(item.title);
-  // console.log(item.brand);
-  // console.log(item.thumbnail);
-  // const {
-  //   title,
-  //   description,
-  //   discountPercentage,
-  //   price,
-  //   brand,
-  //   images,
-  //   thumbnail,
-  // } = item;
-
-  // console.log(title, brand, price);
 
   return (
     <section className="bg-[linear-gradient(120deg,_#fdfbfb_0%,_#ebedee_100%)] min-h-screen py-4 px-[10%]">

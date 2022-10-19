@@ -31,7 +31,7 @@ export default function Cart() {
     totalPrice,
     calculatePrice,
   } = useStateContext();
-  console.log(cartItems);
+  // console.log(cartItems);
 
   // Payments;
   const handleCheckout = async () => {
@@ -44,7 +44,7 @@ export default function Cart() {
       body: JSON.stringify(cartItems),
     });
     const data = await response.json();
-    console.log(stripePromise);
+    // console.log(stripePromise);
     await stripePromise.redirectToCheckout({ sessionId: data.id });
   };
 

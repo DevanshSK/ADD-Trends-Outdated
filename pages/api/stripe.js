@@ -11,7 +11,7 @@ export default async function handler(req, res) {
   if (req.method === "POST") {
     try {
       // Create a checkout session
-      console.log(req.body);
+      // console.log(req.body);
       const session = await stripe.checkout.sessions.create({
         submit_type: "pay",
         mode: "payment",
@@ -25,7 +25,7 @@ export default async function handler(req, res) {
           { shipping_rate: "shr_1LuaTMSC3ULFLuHoaoiNa5Bj" },
         ],
         line_items: req.body.map((item) => {
-          console.log(item);
+          // console.log(item);
 
           return {
             price_data: {

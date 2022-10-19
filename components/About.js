@@ -14,7 +14,7 @@ export default function About() {
           They simply enter product descriptions and prices and upload their
           photos.
         </p>
-        <iframe
+        {/* <iframe
           className="w-full aspect-video max-w-screen-md mx-auto mb-10 rounded-xl"
           width=""
           height=""
@@ -23,7 +23,7 @@ export default function About() {
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
-        ></iframe>
+        ></iframe> */}
       </div>
     </section>
   );

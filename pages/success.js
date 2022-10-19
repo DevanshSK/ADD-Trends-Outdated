@@ -1,6 +1,5 @@
 import React from "react";
 import { useRouter } from "next/router";
-import styled from "styled-components";
 import { motion } from "framer-motion";
 
 const stripe = require("stripe")(
@@ -19,7 +18,7 @@ export async function getServerSideProps(params) {
 
 function success({ order }) {
   const route = useRouter();
-  console.log(order);
+  // console.log(order);
   return (
     <div className=" bg-[#f1f1f1] wrapper  pt-8 px-4">
       <motion.div
@@ -54,7 +53,7 @@ function success({ order }) {
               <div key={item.id}>
                 <p>Product : {item.description}</p>
                 <p>Quantity : {item.quantity}</p>
-                <p>Price : {item.price.unit_amount}</p>
+                {/* <p>Price : {item.price.unit_amount / 100}</p> */}
               </div>
             ))}
           </div>
@@ -72,51 +71,3 @@ function success({ order }) {
 }
 
 export default success;
-
-/*
-const Wrapper = styled.div`
-  margin: 5rem 15rem;
-`;
-
-const Card = styled(motion.div)`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: white;
-  border-radius: 2rem;
-  padding: 3rem 3rem;
-  h1 {
-    color: var(--primary);
-    margin-bottom: 1rem;
-  }
-  h2 {
-    color: var(--secondary);
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-  }
-  button {
-    background: var(--primary);
-    color: white;
-    font-weight: 500;
-    font-size: 1.2rem;
-    padding: 1rem 2rem;
-    margin-top: 2rem;
-    cursor: pointer;
-  }
-`;
-const Address = styled.div`
-  font-size: 1rem;
-  width: 100%;
-`;
-const OrderInfo = styled.div`
-  font-size: 1rem;
-  width: 100%;
-  div {
-    padding-bottom: 1rem;
-  }
-`;
-const InfoWrapper = styled.div`
-  margin-top: 2rem;
-  display: flex;
-`;
-*/

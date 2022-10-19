@@ -6,7 +6,7 @@ import { useStateContext } from "../lib/context";
 export default function Product({ product }) {
   const { formattedNumber, calculatePrice } = useStateContext();
 
-  console.log(product);
+  // console.log(product);
   const {
     item_name,
     brand,
@@ -17,8 +17,8 @@ export default function Product({ product }) {
     discounted_percent,
     stock,
   } = product;
-  console.log("The id is : ", id);
-  console.log("The price is : ", original_mrp);
+  // console.log("The id is : ", id);
+  // console.log("The price is : ", original_mrp);
 
   return (
     <motion.div
