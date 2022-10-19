@@ -15,7 +15,7 @@ export default function Product({ product }) {
     original_mrp,
     image,
     discounted_percent,
-    quantity,
+    stock,
   } = product;
   console.log("The id is : ", id);
   console.log("The price is : ", original_mrp);
@@ -45,7 +45,7 @@ export default function Product({ product }) {
             <div className=" flex items-center gap-1 px-1 py-[2px] rounded-sm w-max absolute bottom-3 left-3      bg-[hsla(0,0%,100%,.8)] text-sm ">
               <span>{rating}</span>
               <AiFillStar className="text-red-500" />
-              <span>| {formattedNumber(quantity)}</span>
+              <span>| {formattedNumber(stock)}</span>
             </div>
           </div>
           <div className="px-3 pb-4">

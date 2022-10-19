@@ -1,16 +1,39 @@
 import { useStateContext, products } from "../lib/context";
+import { useEffect } from "react";
 
 export default function Filter() {
   // Use context
-  const { activeCat, setActiveCat } = useStateContext();
+  const { activeCat, setActiveCat, categories, setCategories } =
+    useStateContext();
   // Categories Array
-  // const categories = products.filter((product.))
-  const categories = ["", "groceries", "smartphones", "laptops"];
 
+  // Fetch Categories
+  useEffect(() => {
+    fetchCategories();
+  }, []);
+  const fetchCategories = async () => {
+    const data = await fetch("http://127.0.0.1:8000/ctg/");
+    // const data = await fetch("https://dummyjson.com/products/");
+    // const data = await fetch("https://dummyjson.com/products?limit=30&skip=30");
+    const cat = await data.json();
+    console.log(data.status);
+    console.log(cat[0]); // Array of categories
+    setCategories(cat[0]);
+  };
+
+  // const categories = products.filter((product.))
+  const cats = ["", "groceries", "smartphones", "laptops"];
+  // const cats = [];
+  // console.log(categories);
+
+  // for (item of categories) {
+  //   cats.push(item);
+  //   console.log(cats);
+  // }
   return (
     <div className=" w-full">
       <div className="filter-container flex flex-wrap items-center justify-center gap-x-4 gap-y-3 ">
-        {categories.map((cat) => {
+        {cats.map((cat) => {
           return (
             <button
               onClick={() => setActiveCat(cat)}

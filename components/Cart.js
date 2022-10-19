@@ -6,6 +6,7 @@ import {
   AiOutlineClose,
 } from "react-icons/ai";
 import { motion } from "framer-motion";
+import getStripe from "../lib/getStripe";
 
 // Animation Variants
 const card = {
@@ -21,18 +22,6 @@ const cards = {
   },
 };
 
-//Payments
-// const handleCheckout = async () => {
-//   const stripe = await getStripe();
-//   const response = await fetch("/api/stripe", {
-//     method: "POST",
-//     headers: { "Content-type": "application/json" },
-//     body: JSON.stringify(cartItems),
-//   });
-//   const data = await response.json();
-//   await stripe.redirectToCheckout({ sessionID: data.id });
-// };
-
 export default function Cart() {
   const {
     cartItems,
@@ -43,6 +32,20 @@ export default function Cart() {
     calculatePrice,
   } = useStateContext();
   console.log(cartItems);
+
+  // Payments;
+  const handleCheckout = async () => {
+    const stripe = await getStripe();
+    const response = await fetch("/api/stripe", {
+      method: "POST",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify(cartItems),
+    });
+    console.log("Cart Items are : ", cartItems);
+    const data = await response.json();
+    console.log(data.id);
+    await stripe.redirectToCheckout({ sessionID: data.id });
+  };
 
   return (
     <motion.div
@@ -140,7 +143,10 @@ export default function Cart() {
             <h2 className="text-xl font-bold text-[#0d0d25]">
               Subtotal: ₹{totalPrice}
             </h2>
-            <button className="bg-[#0d0d25] py-[1em] px-4 w-full my-4 mx-0 text-white cursor-pointer">
+            <button
+              onClick={handleCheckout}
+              className="bg-[#0d0d25] py-[1em] px-4 w-full my-4 mx-0 text-white cursor-pointer"
+            >
               Purchase
             </button>
           </motion.div>
