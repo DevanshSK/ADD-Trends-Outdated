@@ -3,10 +3,19 @@ import Image from "next/image";
 import leafImg from "../assets/image/leaf.png";
 import cartImg from "../assets/gif/giphy.gif";
 import { useStateContext } from "../lib/context";
+import lottie from "lottie-web";
+import HeroLottie from "../assets/Lottie/HeroLottie.json";
+import { useEffect } from "react";
 
 export default function Hero() {
   // Import Parallax effect
   const { parallaxHandler } = useStateContext();
+  useEffect(() => {
+    lottie.loadAnimation({
+      container: document.querySelector("#hero-lottie"),
+      animationData: HeroLottie,
+    });
+  }, []);
 
   return (
     <section
@@ -25,16 +34,20 @@ export default function Hero() {
             ADD Trends is an online shopping system that provides solutions to
             minimize and optimize these costs.
           </p>
-          <Link href="#about">
+          <Link href="/#about">
             <a className="border border-[#ff8243] bg-[#ff8243] text-white px-6 py-3 ml-0 rounded-full font-semibold hover:border-[#0d0d25] hover:bg-[#0d0d25] transition-colors mt-2 duration-300 shadow-xl">
               Check our Products
             </a>
           </Link>
         </div>
         <div className="hero-right z-50">
-          <div className="banner-img-wp aspect-[5/4] lg:aspect-[16/3]] w-full mt-6">
+          {/* <div className="banner-img-wp aspect-[5/4] lg:aspect-[16/3]] w-full mt-6">
             <div className="banner-img w-full h-full bg-[url('../assets/gif/hero-image.gif')] bg-cover bg-center shadow-xl"></div>
-          </div>
+          </div> */}
+          <div
+            id="hero-lottie"
+            className="aspect-[5/4] lg:aspect-[16/3]] w-full mt-6"
+          ></div>
 
           <div className="right-text mt-6 text-center max-w-md mx-auto">
             <h5 className="main-font text-left text-xl mb-2 ">Fashion</h5>

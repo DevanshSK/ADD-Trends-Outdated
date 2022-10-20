@@ -20,7 +20,7 @@ function success({ order }) {
   const route = useRouter();
   // console.log(order);
   return (
-    <div className=" bg-[#f1f1f1] wrapper  pt-8 px-4">
+    <div className=" bg-[#f1f1f1] wrapper  py-8 px-4">
       <motion.div
         className="card container mx-auto bg-white p-10 m-4 max-w-screen-md rounded-2xl shadow-xl mb-0 sm:px-12 md:px-28"
         animate={{ opacity: 1, scale: 1, transition: { duration: 0.75 } }}

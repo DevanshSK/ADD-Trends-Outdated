@@ -84,6 +84,12 @@ p {
   background-repeat: no-repeat;
 }
 
+#hero-lottie {
+  width: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
 .banner-img {
   animation: biani 4.5s linear infinite alternate;
   /* box-shadow: 0 0px 20px rgba(36, 39, 37, 0.3); */

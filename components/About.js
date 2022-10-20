@@ -1,6 +1,16 @@
 import Heading from "./Heading";
+import lottie from "lottie-web";
+import ShoppingAbout from "../assets/Lottie/ShoppingAbout.json";
+import { useEffect } from "react";
 
 export default function About() {
+  useEffect(() => {
+    lottie.loadAnimation({
+      container: document.querySelector("#shopping-about"),
+      animationData: ShoppingAbout,
+    });
+  }, []);
+
   return (
     <section id="about" className="bg-[#f3f3f5]">
       <div className="container py-24 mx-auto px-3">
@@ -24,6 +34,10 @@ export default function About() {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         ></iframe> */}
+        <div
+          id="shopping-about"
+          className="w-full aspect-video max-w-screen-md mx-auto mb-10 rounded-xl"
+        ></div>
       </div>
     </section>
   );
