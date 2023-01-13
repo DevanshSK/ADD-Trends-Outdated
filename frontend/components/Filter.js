@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 export default function Filter() {
   // Use context
-  const { activeCat, setActiveCat, categories, setCategories } =
+  const { activeCat, setActiveCat, categories, setCategories, DJANGO_URL } =
     useStateContext();
   // Categories Array
 
@@ -12,7 +12,8 @@ export default function Filter() {
     fetchCategories();
   }, []);
   const fetchCategories = async () => {
-    const data = await fetch("http://127.0.0.1:8000/ctg/");
+    // console.log("FETCH URL", DJANGO_URL);
+    const data = await fetch(`${DJANGO_URL}/ctg/`);
     // const data = await fetch("https://dummyjson.com/products/");
     // const data = await fetch("https://dummyjson.com/products?limit=30&skip=30");
     const cat = await data.json();
@@ -39,7 +40,7 @@ export default function Filter() {
   // }
   return (
     <div className=" w-full">
-      <div className="filter-container flex flex-wrap items-center justify-center gap-x-4 gap-y-3 ">
+      <div className="filter-container flex flex-wrap items-center justify-center gap-x-4 gap-y-3 z-[99]">
         <button
           onClick={() => setActiveCat("")}
           className={

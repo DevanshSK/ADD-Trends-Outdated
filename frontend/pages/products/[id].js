@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+/* eslint-disable @next/next/no-img-element */
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { useStateContext } from "../../lib/context";
-import { AiFillStar } from "react-icons/ai";
+// import { AiFillStar } from "react-icons/ai";
 import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
 
 const ProductDetails = () => {
@@ -12,28 +13,36 @@ const ProductDetails = () => {
     increaseQty,
     decreaseQty,
     onAdd,
-    formattedNumber,
+    DJANGO_URL,
+    // formattedNumber,
     calculatePrice,
   } = useStateContext();
+  const [isLoading, setIsloading] = useState(true);
 
   // Fetch Slug
   const { query } = useRouter();
-  // console.log(query.id);
+  // console.log(query);
   // const idUrl = "" + query.url;
 
-  // Fetch product Details
-  useEffect(() => {
-    fetchProducts();
-  }, []);
+
   const fetchProducts = async () => {
-    const data = await fetch(`http://127.0.0.1:8000/products/${query.id}/`);
+    const data = await fetch(`${DJANGO_URL}/products/${query.id}/`);
     // const data = await fetch("https://dummyjson.com/products/");
     // const data = await fetch("https://dummyjson.com/products?limit=30&skip=30");
     const product = await data.json();
-    // console.log(data.status);
+    // console.log("current Product",product.id);
+    // if(product.id){
+    //   setIsloading(false);
+    // }
     // console.log(product); // Array of products
     setCurrent(product);
   };
+  // fetchProducts();
+    // Fetch product Details
+    useEffect(() => {
+      fetchProducts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [query.id]);
   const {
     item_name,
     brand,
@@ -45,11 +54,11 @@ const ProductDetails = () => {
     quantity,
     product_details,
   } = current;
-  console.log(current);
+  // console.log(current);
 
   return (
-    <section className="bg-[linear-gradient(120deg,_#fdfbfb_0%,_#ebedee_100%)] min-h-screen py-4 px-[10%]">
-      <div className="container py-8 mx-auto flex flex-col gap-8 md:flex-row md:justify-between md:items-start">
+    <section className="bg-[linear-gradient(120deg,_#fdfbfb_0%,_#ebedee_100%)] min-h-[80vh] py-4 px-[10%]">
+      {<div className="container py-8 mx-auto flex flex-col gap-8 md:flex-row md:justify-between md:items-start">
         <div className="image-part aspect-square md:w-[40%]">
           <img
             className="h-full object-cover object-center shadow-[rgba(0,0,0,0.24)_0px_3px_8px] "
@@ -89,7 +98,7 @@ const ProductDetails = () => {
             Add To Cart
           </button>
         </div>
-      </div>
+      </div> }
     </section>
   );
 };

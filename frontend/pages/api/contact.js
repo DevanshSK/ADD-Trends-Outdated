@@ -29,7 +29,7 @@ const generateEmailCOntent = (data) => {
 
 const handler = async (req, res) => {
   if (req.method === "POST") {
-    console.log(req.body);
+    // console.log(req.body);
     // const values = JSON.parse(req.body);
     const data = req.body;
     if (!data.name && !data.email && !data.subject && !data.message) {

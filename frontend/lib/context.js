@@ -5,6 +5,7 @@ const ShopContext = createContext();
 export const StateContext = ({ children }) => {
   // Fetching Products Data
   // Fetch products using GET request
+  const DJANGO_URL = "http://127.0.0.1:8000";
   const [products, setProducts] = useState([]);
   const [current, setCurrent] = useState({});
   const [filtered, setFiltered] = useState([]);
@@ -60,7 +61,7 @@ export const StateContext = ({ children }) => {
       return item.category === activeCat;
     });
     setFiltered(filtered);
-  }, [activeCat]);
+  }, [activeCat, products]);
 
   // FormatNumbers
   const formattedNumber = (price) => {
@@ -156,6 +157,7 @@ export const StateContext = ({ children }) => {
   return (
     <ShopContext.Provider
       value={{
+        DJANGO_URL,
         products,
         setProducts,
         filtered,
