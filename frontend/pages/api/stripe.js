@@ -1,6 +1,8 @@
-import Stripe from "stripe";
 
+import Stripe from "stripe";
 const stripe = new Stripe(`${process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY}`);
+import {getSession} from "@auth0/nextjs-auth0";
+
 
 const calculatePrice = (original_price, discount) => {
   let discounted_price = original_price - (original_price * discount) / 100;
@@ -8,13 +10,19 @@ const calculatePrice = (original_price, discount) => {
 };
 
 export default async function handler(req, res) {
+  // Get auth session
+  const authSession = await getSession(req, res);
+  const authUser = authSession.user;
+  
+  
   if (req.method === "POST") {
     try {
       // Create a checkout session
-      // console.log(req.body);
+      console.log(authUser["http://localhost:3000/stripe_customer_id"]);
       const session = await stripe.checkout.sessions.create({
         submit_type: "pay",
         mode: "payment",
+        customer: authUser["http://localhost:3000/stripe_customer_id"],
         payment_method_types: ["card"],
         shipping_address_collection: {
           allowed_countries: ["IN", "US", "CA"],
@@ -47,7 +55,7 @@ export default async function handler(req, res) {
         }),
         // Success or failure page
         success_url: `${req.headers.origin}/success?&session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url: `${req.headers.origin}/cancelled`,
+        cancel_url: `${req.headers.origin}/`,
       });
       res.status(200).json(session);
     } catch (error) {

@@ -15,6 +15,7 @@ export const StateContext = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [totalQuantities, setTotalQuantities] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [user, setUser] = useState({});
 
   // useEffect(() => {
   //   fetchProducts();
@@ -181,6 +182,7 @@ export const StateContext = ({ children }) => {
         setCurrent,
         categories,
         setCategories,
+        user, setUser
       }}
     >
       {children}

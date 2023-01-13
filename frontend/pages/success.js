@@ -17,6 +17,7 @@ export async function getServerSideProps(params) {
 }
 
 function success({ order }) {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const route = useRouter();
   // console.log(order);
   return (

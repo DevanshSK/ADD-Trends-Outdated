@@ -44,8 +44,8 @@ export default function Filter() {
           onClick={() => setActiveCat("")}
           className={
             activeCat === ""
-              ? "btn-filter text-white bg-[#ff8423]"
-              : "btn-filter text-[#ff8243] bg-white "
+              ? "btn-filter text-white bg-[#ff8423] focus-within:border-[#ff8243] focus-visible:border-[#ff8243] focus:outline-none outline-none"
+              : "btn-filter text-[#ff8243] bg-white focus-within:border-[#ff8243] focus-visible:border-[#ff8243] focus:outline-none outline-none"
           }
           autoFocus
         >

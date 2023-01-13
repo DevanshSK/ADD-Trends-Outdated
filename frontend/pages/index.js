@@ -1,5 +1,5 @@
 import Head from "next/head";
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Hero from "../components/Hero";
 import About from "../components/About";
 import ProductSection from "../components/ProductSection";
@@ -51,6 +51,7 @@ export default function Home() {
       </Head>
 
       <main>
+        <div id="top"></div>
         <Hero />
         <About />
         <ProductSection />

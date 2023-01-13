@@ -6,7 +6,7 @@
 
 @layer components {
   .btn-filter {
-    @apply border-2 border-solid border-[#ff8243] py-2 px-6 rounded-full  font-bold min-w-[5rem] cursor-pointer capitalize focus:border-[#ff8243];
+    @apply border-2 border-solid border-[#ff8243] py-2 px-6 rounded-full  font-bold min-w-[5rem] cursor-pointer capitalize focus:border-[#ff8243] focus-visible:border-[#ff8243];
   }
 }
 
@@ -93,6 +93,9 @@ p {
 .banner-img {
   animation: biani 4.5s linear infinite alternate;
   /* box-shadow: 0 0px 20px rgba(36, 39, 37, 0.3); */
+}
+.btn-filter{
+  outline: none !important;
 }
 
 @keyframes biani {

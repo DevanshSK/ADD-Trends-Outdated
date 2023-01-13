@@ -7,6 +7,9 @@ import {
 } from "react-icons/ai";
 import { motion } from "framer-motion";
 import getStripe from "../lib/getStripe";
+import { useRouter } from "next/router";
+import { useUser } from "@auth0/nextjs-auth0/client";
+
 
 // Animation Variants
 const card = {
@@ -31,6 +34,9 @@ export default function Cart() {
     totalPrice,
     calculatePrice,
   } = useStateContext();
+  const { user, error, isLoading } = useUser();
+  // console.log(user);
+  const route = useRouter();
   // console.log(cartItems);
 
   // Payments;
@@ -144,12 +150,20 @@ export default function Cart() {
             <h2 className="text-xl font-bold text-[#0d0d25]">
               Subtotal: ₹{totalPrice}
             </h2>
-            <button
+            {!user && <button
+              onClick={() => route.push("/api/auth/login")}
+              className="bg-[#0d0d25] py-[1em] px-4 w-full my-4 mx-0 text-white cursor-pointer"
+            >
+              Login
+            </button>}
+
+            {user && <button
               onClick={handleCheckout}
               className="bg-[#0d0d25] py-[1em] px-4 w-full my-4 mx-0 text-white cursor-pointer"
             >
               Purchase
-            </button>
+            </button>}
+
           </motion.div>
         )}
       </motion.div>
