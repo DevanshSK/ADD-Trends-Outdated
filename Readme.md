@@ -95,15 +95,37 @@ out for delivery, delivered)
 
 * Windows 10 or above or equivalent.
 * NodeJS and NPM should be installed.
+* Python should be installed on your system.
+
+
+### Installing and Executing Backend
+
+* Open the ```Backend``` folder in the code editor.
+* Then activate your python enviroment.
+* Install the requirements file in your env using the following ```pip command```
+  ```
+  pip install -r requirements.txt
+  ```
+* After the installation, open the project directory in terminal and run the following command:
+  ```
+  python manage.py migrate
+  ```
+* Now run the backend server using following commands
+  ```
+  python manage.py runserver
+  ```
+
 
 ### Installing and Executing Frontend 
 
 * Clone this repo in your system and open the "Frontend" directory in terminal.
 * Type ```npm install``` to install all the required dependencies.
 * Also add the required OAuth and Stripe keys in the ".env" or ".env.local" file.
-
-### Installing and Executing Backend
-
+* After that Start the frontend by using this command in this terminal.
+  ```
+  npm run dev
+  ```
+* After that your frontend and backend should be running. 
 
 ## Authors
 
@@ -119,3 +141,7 @@ Contributors names and contact info
 3. Devansh Dixit: Designed the UI/UX and animatiosn
   - [LinkedIn](https://www.linkedin.com/in/devansh-dixit-5193b3251/)
 
+## Important Points
+
+- The title of this repository says ```ADD-Trends-Outdated``` because we are improving and upgrading this project with new technologies and enabling cross platform function. So don't worry about it. 
+- You are feel free to contribute to this project.
