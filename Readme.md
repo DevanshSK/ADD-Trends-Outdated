@@ -144,4 +144,4 @@ Contributors names and contact info
 ## Important Points
 
 - The title of this repository says ```ADD-Trends-Outdated``` because we are improving and upgrading this project with new technologies and enabling cross platform function. So don't worry about it. 
-- You are feel free to contribute to this project.
+- You can feel free to contribute to this project.
